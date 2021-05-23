@@ -1,4 +1,4 @@
-package com.example.project_arcore
+package com.godzy.project_arcore
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

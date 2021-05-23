@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primaryColor: Colors.black,
           textTheme: TextTheme(
-              title: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              body1: TextStyle(
+              headline6: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              bodyText2: TextStyle(
                   color: Colors.white, fontSize: 20),
-              subtitle:
+              subtitle2:
                   TextStyle(color: Colors.grey, fontSize: 20))),
     );
   }

@@ -41,13 +41,13 @@ class _CameraViewState extends State<CameraView> {
     initController();
 
     setState(() {
-      controller = CameraController(cameras[1], ResolutionPreset.ultraHigh);
+      controller = CameraController(cameras[0], ResolutionPreset.ultraHigh);
       _initializeControllerFuture = controller.initialize();
     });
   }
 
   initController() async {
-    textureBytes = await rootBundle.load('resources/images/black.png');
+    final ByteData textureBytes = await rootBundle.load('resources/images/black.png');
 
     arCoreFaceController.loadMesh(
       textureBytes: textureBytes.buffer.asUint8List(),
@@ -65,11 +65,10 @@ class _CameraViewState extends State<CameraView> {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return Stack(
                     children: <Widget>[
-                      /*ArCoreFaceView(
+                      ArCoreFaceView(
                         onArCoreViewCreated: _onArCoreViewCreated,
                         enableAugmentedFaces: true,
                       ),
-*/
                       CameraPreview(controller),
                       Positioned(
                         bottom: 0.0,
@@ -101,7 +100,7 @@ class _CameraViewState extends State<CameraView> {
                                       '${DateTime.now()}.png',
                                     );
                                     // Attempt to take a picture and log where it's been saved.
-                                    await controller.takePicture(path);
+                                    await controller.takePicture();
 
                                     Navigator.push(
                                       context,
